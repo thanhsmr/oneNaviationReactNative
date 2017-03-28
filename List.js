@@ -5,6 +5,8 @@ import {
   Text
 } from 'react-native';
 
+import Row from './row';
+
 const demoData = [
   {
     title: 'Zootopia',
@@ -100,9 +102,18 @@ export default class List extends Component {
 
   _renderRow = (movie) => {
     return (
-      <Text>
-        {movie.title}
-      </Text>
+      <Row
+        // Pass movie object
+          movie={movie}
+          // Pass a function to handle row presses
+          onPress={()=>{
+            // Navigate to a separate movie detail screen
+            this.props.navigator.push({
+              name: 'movie',
+              movie: movie,
+    });
+  }}
+/>
     )
   }
 

@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 
 import List from './List';
+import Movie from './Movie';
 
 
 const RouteMapper = (route, navigationOperations, onComponentRef) => {
@@ -14,7 +15,14 @@ const RouteMapper = (route, navigationOperations, onComponentRef) => {
       <List navigator = {navigationOperations}/>
     )
   } else if (route.name === 'movie') {
-
+    return (
+      <Movie
+      // Pass movie object passed with route down as a prop
+      movie={route.movie}
+      // Pass navigationOperations as navigator prop
+      navigator={navigationOperations}
+  />
+);
   }
 };
 
